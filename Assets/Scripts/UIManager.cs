@@ -13,6 +13,12 @@ public class UIManager : MonoBehaviour
 {
     public TMP_Text scoreText;
     [SerializeField] private int totalScore;
+    private UIManager uiManager;
+
+	private void Start()
+	{
+		uiManager = GameManager.Instance.GetComponent<UIManager>();
+	}
 
 	public void UpdateScoreUI(int _score)
     {
@@ -22,7 +28,7 @@ public class UIManager : MonoBehaviour
 
     private void ResetScore()
     {
-        totalScore = 0;
+        uiManager.totalScore = 0;
     }
 
     public void LoadGame()
@@ -32,6 +38,7 @@ public class UIManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        ResetScore();
         SceneManager.LoadScene(0);
 	}
 
