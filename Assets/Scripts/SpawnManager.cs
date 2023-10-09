@@ -6,14 +6,15 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private float spawnVerticalBound;
     [SerializeField] private float spawnHorizontalBound;
-    [SerializeField] private GameObject coin;
-    [SerializeField] private GameObject bomb;
-    [SerializeField] private int spawnTimer;
+    [SerializeField] private GameObject[] spawnObjects;
+    [SerializeField] private int coinSpawnTimer;
+    [SerializeField] private int bombSpawnTimer;
     private Vector3 spawnPosition;
 
 	private void Start()
 	{
-        StartCoroutine(SpawnTimer(spawnTimer, true));
+        StartCoroutine(SpawnTimer(coinSpawnTimer, true, spawnObjects[0]));
+		StartCoroutine(SpawnTimer(bombSpawnTimer, true, spawnObjects[1]));
 	}
 
 	void GenerateSpawnLocation()
@@ -21,17 +22,17 @@ public class SpawnManager : MonoBehaviour
         spawnPosition = new Vector3(Random.Range(-spawnHorizontalBound, spawnHorizontalBound), Random.Range(-spawnVerticalBound, spawnVerticalBound), 0);
     }
 
-    void SpawnGamePiece()
+    void SpawnGamePiece(GameObject _object)
     {
         GenerateSpawnLocation();
-        Instantiate(coin, spawnPosition, coin.transform.rotation);
+        Instantiate(_object, spawnPosition, _object.transform.rotation);
     }
 
-    IEnumerator SpawnTimer(int _timer, bool _continue) 
+    IEnumerator SpawnTimer(int _timer, bool _continue, GameObject _object) 
     {
         while (_continue)
         {
-            SpawnGamePiece();
+            SpawnGamePiece(_object);
             yield return new WaitForSeconds(_timer);
         }
 	}

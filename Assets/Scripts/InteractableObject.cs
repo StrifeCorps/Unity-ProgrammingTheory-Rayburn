@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
-    [SerializeField] private int scoreValue;
+    [SerializeField] protected int scoreValue;
 	[SerializeField] private bool spinObject;
 
 	public UnityEvent<int> ObjectDestroyed;
@@ -15,6 +15,13 @@ public class InteractableObject : MonoBehaviour
 	{
 		ObjectDestroyed.AddListener(GameManager.Instance.UIManager.UpdateScoreUI);
 		StartCoroutine(RotateObject());
+		StartCoroutine(DestroyTimer());
+	}
+
+	private IEnumerator DestroyTimer()
+	{
+		yield return new WaitForSeconds(3);
+		Destroy(gameObject);
 	}
 
 	virtual public void OnMouseDown()

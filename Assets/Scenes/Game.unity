@@ -900,8 +900,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnVerticalBound: 3
   spawnHorizontalBound: 9
-  coin: {fileID: 9067950190471367956, guid: 744ac0cc2c176c24eae375da292c1d7a, type: 3}
-  spawnTimer: 3
+  spawnObjects:
+  - {fileID: 9067950190471367956, guid: 744ac0cc2c176c24eae375da292c1d7a, type: 3}
+  - {fileID: 5312309111924176442, guid: 433cb9863dc73ea4e81122b68e909b1f, type: 3}
+  coinSpawnTimer: 1
+  bombSpawnTimer: 3
 --- !u!4 &1140475763
 Transform:
   m_ObjectHideFlags: 0
