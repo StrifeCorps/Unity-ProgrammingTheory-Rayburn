@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombScript : InteractableObject
+public class BombScript : InteractableObject //INHERITANCE
 {
 
-	public override void OnMouseDown()
+	public override void OnMouseDown() // POLYMORPHISM
 	{
 		ObjectDestroyed.Invoke(scoreValue);
 
