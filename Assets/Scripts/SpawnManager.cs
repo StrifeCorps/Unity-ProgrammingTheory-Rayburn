@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    //ENCAPSULATION
     [SerializeField] private float spawnVerticalBound;
     [SerializeField] private float spawnHorizontalBound;
     [SerializeField] private GameObject[] spawnObjects;
@@ -17,7 +18,7 @@ public class SpawnManager : MonoBehaviour
 		StartCoroutine(SpawnTimer(bombSpawnTimer, true, spawnObjects[1]));
 	}
 
-	void GenerateSpawnLocation()
+	void GenerateSpawnLocation() //ABSTRACTION
     {
         spawnPosition = new Vector3(Random.Range(-spawnHorizontalBound, spawnHorizontalBound), Random.Range(-spawnVerticalBound, spawnVerticalBound), 0);
     }
