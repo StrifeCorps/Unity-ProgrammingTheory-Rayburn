@@ -15,7 +15,7 @@ public class InteractableObject : MonoBehaviour
 		ObjectDestroyed.AddListener(GameManager.Instance.UIManager.UpdateScoreUI);
 	}
 
-	public void OnMouseDown()
+	virtual public void OnMouseDown()
 	{
 		ObjectDestroyed.Invoke(scoreValue);
 		Destroy(gameObject);

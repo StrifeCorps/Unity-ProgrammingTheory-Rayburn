@@ -288,7 +288,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7123572131789791339, guid: 9cdb1e44ad4e3af48b5f583dfc7e8553, type: 3}
+      - m_Target: {fileID: 4583772635205071226, guid: 9cdb1e44ad4e3af48b5f583dfc7e8553, type: 3}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1

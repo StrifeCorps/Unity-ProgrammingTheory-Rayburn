@@ -20,22 +20,20 @@ public class UIManager : MonoBehaviour
 		scoreText.text = $"Score: {totalScore}";
     }
 
-    public void ResetScore()
+    private void ResetScore()
     {
         totalScore = 0;
     }
 
     public void LoadGame()
     {
-        ResetScore();
         SceneManager.LoadScene(1);
-    }
+	}
 
     public void LoadMainMenu()
     {
-        ResetScore();
-        SceneManager.LoadScene(0); 
-    }
+        SceneManager.LoadScene(0);
+	}
 
     public void ExitGame()
     {
